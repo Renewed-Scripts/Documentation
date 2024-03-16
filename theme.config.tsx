@@ -13,6 +13,10 @@ const config: DocsThemeConfig = {
   footer: {
     text: 'Renewed Scripts Documentation',
   },
+
+  sidebar: {
+    defaultMenuCollapseLevel: 1,
+  },
 }
 
 export default config
