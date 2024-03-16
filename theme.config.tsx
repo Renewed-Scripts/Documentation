@@ -1,8 +1,18 @@
 import React from 'react'
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import { DocsThemeConfig } from 'nextra-theme-docs';
+
+function useHead() {
+  return (
+    <>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta property="og:title" content="Renewed Scripts" />
+      <meta property="og:description" content="Documentation for Renewed Scripts" />
+    </>
+  );
+}
 
 const config: DocsThemeConfig = {
-  logo: <span>Renewed Documentation</span>,
+  logo: <span>Renewed Scripts</span>,
   project: {
     link: 'https://github.com/Renewed-Scripts',
   },
@@ -11,12 +21,14 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: 'https://github.com/Renewed-Scripts/Documentation',
   footer: {
-    text: 'Renewed Scripts Documentation',
+    text: 'Renewed Scripts',
   },
 
   sidebar: {
     defaultMenuCollapseLevel: 1,
   },
+
+  head: useHead,
 }
 
 export default config
