@@ -1,0 +1,42 @@
+# Functions
+
+Import the Lib by using this export as you would with a normal core
+
+```lua
+local Renewed = exports['Renewed-Lib']:getLib()
+```
+
+## getPlayerGroup()
+
+Returns a table containing the current player's job(s) and/or gang(s)
+
+```lua
+Renewed.getPlayerGroup()
+```
+
+Return:
+- group: `table`
+
+```lua
+{
+    Group = {
+        ['mechanic'] = 4,
+        ['ballas'] = 2
+    },
+    job = 'mechanic',
+    gang = 'ballas',
+    charId = 'QB245361',
+    name = 'Test Player'
+}
+```
+
+## getCharId()
+
+Returns the current player's character ID
+
+```lua
+Renewed.getCharId()
+```
+
+Return:
+- charId: `string`

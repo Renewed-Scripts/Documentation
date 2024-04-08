@@ -1,0 +1,153 @@
+
+# Functions
+
+Import the Lib by using this export as you would with a normal core
+
+```lua
+local Renewed = exports['Renewed-Lib']:getLib()
+```
+
+## addObject()
+
+Adds an object that will auto spawn/despawn
+
+```lua
+Renewed.addObject(payload)
+```
+
+- payload: `table`
+
+```lua
+Renewed.addObject({
+    object = `prop_weed_01`,
+    dist = 300,
+    coords = vec3(-596.54, -1096.99, 22.18),
+    heading = 308.0,
+    snapGround = true,
+    freeze = true,
+    canClimb = true,
+    colissions = true,
+    anim = {
+        'amb@world_human_gardener_plant@male@base',
+        'base'
+    },
+    animSpeed = 1.0,
+    id = 'brandNewObject_323'
+    target = {
+        {
+            name = 'brandNewPed_323',
+            icon = 'fas fa-cannabis',
+            label = 'Harvest',
+            event = 'weed:client:harvest',
+            id = 'brandNewObjectLol',
+            canInteract = function(_, distance)
+                return distance < 1.5
+            end,
+        }
+    }
+})
+```
+
+## changeObject()
+
+Changes an spawned object's model, its location, and heading
+
+```lua
+Renewed.changeObject(id, newObject, newCoords, newHeading)
+```
+
+- id: `string`
+- newObject: `string` or `hash`
+- newCoords: `vec3`
+- newHeading: `float`
+
+```lua
+Renewed.changeObject('brandNewObject_323', `prop_weed_02`, vec3(100, 50, 50), 120.0)
+```
+
+## changeAnim()
+
+Changes an object's animation
+
+```lua
+Renewed.changeAnim(id, anim, animSpeed)
+```
+
+- id: `string`
+- anim: `list`
+- animSpeec: `float`
+
+```lua
+Renewed.changeAnim('brandNewObject_323', {"amb@world_human_gardener_plant@female@base", "base"}, 0.8)
+```
+
+## removeObject()
+
+Removes an object from being created
+
+```lua
+Renewed.removeObject(id)
+```
+
+- id: `string`
+
+```lua
+Renewed.removeObject('brandNewObject_323')
+```
+
+## removeResourceObj()
+
+Removes all objects created by the invoking resource
+
+```lua
+Renewed.removeResourceObj(resource)
+```
+
+- resource: `string` or `nil`
+
+```lua
+Renewed.removeResourceObj('my-resource-name')
+```
+
+## placeObject()
+
+Allows a player to interactively place an object
+
+```lua
+Renewed.placeObject(object, dist, snapGround, text, allowedMats, offset)
+```
+
+- object: `hash`
+- dist: `int`
+- snapGround?: `boolean`
+- text?: `list`
+- allowedMats?: `list`
+- offset?: `float` or `table`
+
+```lua
+Renewed.placeObject('prop_weed_01', 300, true, {
+    '-- Place Object --  \n',
+    '[E] Place  \n',
+    '[X] Cancel  \n',
+    '[SCROLL UP] Change Heading  \n',
+    '[SCROLL DOWN] Change Heading'
+}, {
+    ['concrete'] = true,
+    ['plastic'] = true
+}, {
+    x = 0.0,
+    y = 0.0,
+    z = 0.0
+})
+```
+
+Return:
+- coords, heading: `vec3(123, 123, 123)`, `123`
+
+## stopPlacing()
+
+Stops a player from placing an object
+
+```lua
+Renewed.stopPlacing()
+```

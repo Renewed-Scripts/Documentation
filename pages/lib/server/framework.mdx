@@ -1,0 +1,258 @@
+# Functions
+
+Import the Lib by using this export as you would with a normal core
+
+```lua
+local Renewed = exports['Renewed-Lib']:getLib()
+```
+
+## getGroups()
+
+Returns a table containing the source's job(s) and/or gang(s)
+
+```lua
+Renewed.getGroups(src)
+```
+
+- src: `int`
+
+Return:
+- groups: `table`
+
+```lua
+{
+    Group = {
+        ['mechanic'] = 4,
+        ['ballas'] = 2
+    },
+    job = 'mechanic',
+    gang = 'ballas',
+    charId = 'QB245361',
+    name = 'Test Player'
+}
+```
+
+## hasGroup()
+
+Checks if a player has a specific group with an optional minimum grade
+
+```lua
+Renewed.hasGroup(src, group, grade)
+```
+
+- src: `int`
+- group: `string`
+- grade?: `int`
+
+Return:
+- `boolean`
+
+## getPlayer()
+
+Retrieves the player object associated with the given source
+
+```lua
+Renewed.getPlayer(src)
+```
+
+- src: `int`
+
+Return:
+- player: `table|nil`
+
+## addStress()
+
+Adds stress to a player
+
+```lua
+Renewed.addStress(src, value)
+```
+
+- src: `int`
+- value: `int`
+
+```lua
+Renewed.addStress(-1, 5)
+```
+
+## relieveStress()
+
+Relieve stress for a player
+
+```lua
+Renewed.relieveStress(src, value)
+```
+
+- src: `int`
+- value: `int`
+
+```lua
+Renewed.relieveStress(-1, 5)
+```
+
+## isGroupAuth()
+
+Check if a player has group authorization
+
+```lua
+Renewed.isGroupAuth(group, grade)
+```
+
+- group: `string`
+- grade: `int`
+
+Return:
+- Boolean
+
+## getCharId()
+
+Get the character ID of a player
+
+```lua
+Renewed.getCharId(src)
+```
+
+- src: `int`
+
+Return:
+- charId: `string`
+
+## getCharName()
+
+Get the character name of a player
+
+Renewed.getCharName(src)
+
+- src: `int`
+
+Return:
+- charName: `string`
+
+## getCharNameById()
+
+Get the character name by citizen id
+
+```lua
+Renewed.getCharNameById(identifier)
+```
+
+- identifier: `string` or `int`
+
+Return:
+- characterName: `string`
+
+## getMoney()
+
+Get the player's money
+
+```lua
+Renewed.getMoney(src, mType)
+```
+
+- src: `int`
+- mType: `string`
+
+Return:
+- money: `int` or `nil`
+
+## getOfflineMoney()
+
+Get the money of an offline player
+
+```lua
+Renewed.getOfflineMoney(id)
+```
+
+Return:
+- money: `{bank, cash}`
+
+## removeMoney()
+
+Remove money from a player
+
+```lua
+Renewed.removeMoney(src, amount, mType, reason)
+```
+
+- src: `int`
+- amount: `int`
+- mType: `string`
+- reason?: `string`
+
+Return:
+- `true` on success
+
+## addMoney()
+
+Add money to a player
+
+```lua
+Renewed.addMoney(src, amount, mType, reason)
+```
+
+- src: `int`
+- amount: `int`
+- mType: `string`
+- reason?: `string`
+
+Return:
+- `true` on success
+
+## addOfflineMoney()
+
+Add money to an offline player
+
+```lua
+Renewed.addOfflineMoney(identifier, amount, mType)
+```
+
+- identifier: `string` or `int`
+- amount: `int`
+- mType: `string`
+
+Return:
+- `true` on success
+
+## removeOfflineMoney()
+
+Remove money to an offline player
+
+```lua
+Renewed.removeOfflineMoney(identifier, amount, mType)
+```
+
+- identifier: `string` or `int`
+- amount: `int`
+- mType: `string`
+
+Return:
+- `true` on success
+
+## addNeeds()
+
+Add needs (hunger and thirst) to a player
+
+```lua
+Renewed.addNeeds(src, needs)
+```
+
+- src: `int`
+- needs: `table`
+    - hunger?: `int`
+    - thirst?: `int`
+
+Return:
+- `true` on success
+
+## getSourceByCharId()
+
+Get the player's source ID by character ID
+
+```lua
+Renewed.getSourceByCharId(charId)
+```
+
+- charId: `string`
+
+Return:
+- src: `int` or `nil`

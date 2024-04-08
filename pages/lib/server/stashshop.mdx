@@ -1,0 +1,26 @@
+# exports
+
+## createSaleStash
+
+Creates a sale stash with `ox_inventory` parameters
+
+```lua
+exports['Renewed-Lib']:createSaleStash(id, label, items, coords)
+```
+
+- id: `string`
+- label: `string`
+- items: `table`
+- coords: `vector`
+
+```lua
+exports['Renewed-Lib']:createSaleStash(
+    'testSaleStash_1',
+    'Test Stash',
+    {
+        'water' = 1,
+        'sandwich' = 1
+    },
+    vec3(123, 123, 123)
+)
+```

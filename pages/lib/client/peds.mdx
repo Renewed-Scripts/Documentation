@@ -1,0 +1,94 @@
+
+# Functions
+
+Import the Lib by using this export as you would with a normal core
+
+```lua
+local Renewed = exports['Renewed-Lib']:getLib()
+```
+
+## addPed()
+
+Creates a ped that automatically deletes when out of range
+
+```lua
+Renewed.addPed(payload)
+```
+
+- payload: `table`
+
+```lua
+Renewed.addPed({ 
+    model = `a_f_y_business_01`,
+    dist = 300,
+    coords = vec3(-596.54, -1096.99, 22.18),
+    heading = 308.0,
+    freeze = true,
+    invincible = true,
+    tempevents = true,
+    animDict = 'anim@mp_player_intcelebrationfemale@the_woogie',
+    animName = 'the_woogie',
+    scenario = false,
+    id = 'brandNewPed_323',
+    
+    target = {
+        {
+            name = 'brandNewPed_323',
+            icon = 'fas fa-shopping-basket',
+            label = 'View Shop',
+            event = 'Renewed-Businesses:client:openStore',
+            id = 'brandNewShopLol',
+            canInteract = function(_, distance)
+                return distance < 1.5
+            end,
+        }
+    }
+})
+```
+
+## removePed()
+
+Deletes a created ped
+
+```lua
+Renewed.removePed(id)
+```
+
+- id: `string`
+
+```lua
+Renewed.removePed('brandNewPed_323')
+```
+
+## setPedCoords()
+
+Changes the coordinates of a ped
+
+```lua
+Renewed.setPedCoords(id, coords, heading)
+```
+
+- id: `string`
+- coords: `vector`
+- heading: `float`
+
+```lua
+Renewed.setPedCoords('brandNewPed_323', vec3(150, 50, 50), 120.0)
+```
+
+## getPedById()
+
+Returns the ped's entity ID
+
+```lua
+Renewed.getPedById(id)
+```
+
+- id: `string`
+
+```lua
+Renewed.getPedById('brandNewPed_323')
+```
+
+Return:
+- id: `34562`
