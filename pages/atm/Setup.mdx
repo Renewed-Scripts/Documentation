@@ -45,3 +45,54 @@ and paste in the following items
 
 ### Step 3
 Headover to ox_inventory/web/images and paste in the images from Renewed-Atmrobbery
+
+
+### Step 4 (Optional)
+Headover to Renewed-Weaponscarry/data/carry.lua and paste in the following
+
+```lua
+atm1 = {
+    model = `ep_atm_03`,
+    pos = vec3(0.0, -0.25, -0.51),
+    rot = vec3(3.0, 0.0, 0.0),
+    bone = 28422,
+    dict = 'anim@heists@box_carry@',
+    anim = 'idle',
+    disableKeys = {
+        disableSprint = true,
+        disableJump = true,
+        disableAttack = true,
+        disableVehicle = true
+    }
+},
+
+atm2 = {
+    model = `ep_atm_02`,
+    pos = vec3(0.0, -0.25, -0.61),
+    rot = vec3(3.0, 0.0, 0.0),
+    bone = 28422,
+    dict = 'anim@heists@box_carry@',
+    anim = 'idle',
+    disableKeys = {
+        disableSprint = true,
+        disableJump = true,
+        disableAttack = true,
+        disableVehicle = true
+    }
+},
+
+atm3 = {
+    model = `ep_fleeca_atm`,
+    pos = vec3(0.0, -0.25, -0.51),
+    rot = vec3(3.0, 0.0, 0.0),
+    bone = 28422,
+    dict = 'anim@heists@box_carry@',
+    anim = 'idle',
+    disableKeys = {
+        disableSprint = true,
+        disableJump = true,
+        disableAttack = true,
+        disableVehicle = true
+    }
+},
+```
