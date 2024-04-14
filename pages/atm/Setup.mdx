@@ -1,0 +1,47 @@
+### Step 1
+Put Renewed-Atmrobbery and ep_atmprops inside your server and add them to your server.cfg
+
+### Step 2
+Headover to your ox_inventory -> data/items.lua
+
+and paste in the following items
+
+```lua
+['rope'] = {
+    label = 'Rope',
+    weight = 160,
+    client = {
+        event = 'Renewed-Atmrobbery:useRope'
+    }
+},
+
+['atm1'] = {
+    label = 'ATM',
+    weight = 10000,
+    stack = false,
+    client = {
+        event = 'Renewed-Atmrobbery:useAtm'
+    }
+},
+
+['atm2'] = {
+    label = 'ATM',
+    weight = 10000,
+    stack = false,
+    client = {
+        event = 'Renewed-Atmrobbery:useAtm'
+    }
+},
+
+['atm3'] = {
+    label = 'ATM',
+    weight = 10000,
+    stack = false,
+    client = {
+        event = 'Renewed-Atmrobbery:useAtm'
+    }
+},
+```
+
+### Step 3
+Headover to ox_inventory/web/images and paste in the images from Renewed-Atmrobbery
