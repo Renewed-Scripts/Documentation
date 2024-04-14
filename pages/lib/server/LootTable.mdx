@@ -1,0 +1,52 @@
+## RegisterLootTable
+
+Creates a loot table inside of Renewed-Lib which can be accessed and used to generate loot
+
+```lua
+exports['Renewed-Lib']:RegisterLootTable(id, data)
+```
+
+- id: `string`
+- data: `table`
+  - chance: `number`
+  - name: `string`
+  - metadata?: `table`
+  - amount?: `number`
+  - min?: `number`
+  - max?: `number`
+
+```lua
+exports['Renewed-Lib']:RegisterLootTable('test_resource', {
+    {name = 'money', chance = 1.0, min = 100, max = 500},
+    {name = 'scrapmetal', amount = 100, chance = 0.5}
+})
+```
+
+
+## GenerateLoot
+
+Generates a table with loot
+
+```lua
+exports['Renewed-Lib']:GenerateLoot(id, minLoot, maxLoot)
+```
+
+- id: `string`
+- minLoot: `number`
+- maxLoot: `number`
+
+
+```lua
+    local items = exports['Renewed-Lib']:GenerateLoot('test_resource', 1, 3)
+
+    for item, itemData in pairs(items) do
+        exports.ox_inventory:AddItem(source, item, itemData.amount, itemData.metadata)
+    end
+```
+
+Return Data
+- data: `table`
+  - key: `string`
+  - value: `data`
+    - amount: `number`
+    - metadata?: `table`
