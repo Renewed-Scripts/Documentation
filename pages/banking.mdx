@@ -1,0 +1,85 @@
+# Description
+This resource is created & maintained by `uShifty#1733` and was not a fork of any of the other banking resources.
+
+## Features
+* Personal, Job, Gang, Shared Accounts
+* Withdraw, Deposit, Transfer between accounts
+* Optimized Resource (0.00ms Running At All Times)
+
+## Dependencies
+* [oxmysql](https://github.com/overextended/oxmysql)
+* [ox-lib](https://github.com/overextended/ox_lib)
+* [ox-target](https://github.com/overextended/ox_target)\
+Supports QBCore and ESX. You can easily add support for other frameworks by editing the `Framework.lua`
+ 
+## Installation
+
+1. Insert the SQL provided
+2. Integrate the exports in any external resource that interacts with banking.
+ 
+## qb-managment Conversion
+```lua
+exports['qb-management']:GetAccount => exports['Renewed-Banking']:getAccountMoney
+exports['qb-management']:AddMoney => exports['Renewed-Banking']:addAccountMoney
+exports['qb-management']:RemoveMoney => exports['Renewed-Banking']:removeAccountMoney
+exports['qb-management']:GetGangAccount=> exports['Renewed-Banking']:getAccountMoney
+exports['qb-management']:AddGangMoney=> exports['Renewed-Banking']:addAccountMoney
+exports['qb-management']:RemoveGangMoney=> exports['Renewed-Banking']:removeAccountMoney
+```
+## qb-banking Conversion
+```lua
+exports['qb-banking']:GetAccountBalance => exports['Renewed-Banking']:getAccountMoney
+exports['qb-banking']:AddMoney => exports['Renewed-Banking']:addAccountMoney
+exports['qb-banking']:RemoveMoney => exports['Renewed-Banking']:removeAccountMoney
+exports['qb-banking']:GetGangAccount=> exports['Renewed-Banking']:getAccountMoney
+exports['qb-banking']:AddGangMoney=> exports['Renewed-Banking']:addAccountMoney
+exports['qb-banking']:RemoveGangMoney=> exports['Renewed-Banking']:removeAccountMoney
+```
+## Society Bank Access
+```lua filename="qb-core/shared/jobs.lua / qb-core/shared/gangs.lua" /bankAuth = true,/
+	taxi = {
+		label = 'Taxi',
+		defaultDuty = true,
+		offDutyPay = false,
+		grades = {
+			['0'] = { name = 'Recruit', payment = 50 },
+			['1'] = { name = 'Driver', payment = 75 },
+			['2'] = { name = 'Event Driver', payment = 100 },
+			['3'] = { name = 'Sales', payment = 125 },
+			['4'] = { name = 'Manager', isboss = true, bankAuth = true, payment = 150 },
+		},
+	},
+```
+This is already integrated in `qbx_core` by default, if you need to add to other jobs then see example below:
+```lua filename="qbx_core/shared/jobs.lua / qbx_core/shared/gangs.lua" /bankAuth = true,/
+['taxi'] = {
+		label = 'Taxi',
+		defaultDuty = true,
+		offDutyPay = false,
+		grades = {
+            [0] = {
+                name = 'Recruit',
+                payment = 50
+            },
+			[1] = {
+                name = 'Driver',
+                payment = 75
+            },
+			[2] = {
+                name = 'Event Driver',
+                payment = 100
+            },
+			[3] = {
+                name = 'Sales',
+                payment = 125
+            },
+			[4] = {
+                name = 'Manager',
+                isboss = true,
+                bankAuth = true,
+                payment = 150
+            },
+        },
+	},
+```
+Note: This applies to jobs and gangs. 
