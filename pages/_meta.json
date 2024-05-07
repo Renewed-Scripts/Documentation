@@ -1,12 +1,23 @@
 {
   "index": "Introduction",
-  "atm": "Renewed Atmrobbery",
-  "fuel": "Renewed Fuel",
-  "weed": "Renewed Weed",
-  "businesses": "Renewed Businesses",
-  "key": "Renewed Vehiclekeys",
-  "farming": "Renewed Farming",
-  "bee": "Renewed Beekeeping",
+  "Paid": {
+    "type": "separator",
+    "title": "Paid Scripts"
+  },
+  "meth": "Meth",
+  "atm": "ATM Robbery",
+  "fuel": "Fuel",
+  "weed": "Weed",
+  "businesses": "Businesses",
+  "key": "Vehiclekeys",
+  "farming": "Farming",
+  "bee": "Beekeeping",
+  "Free": {
+    "type": "separator",
+    "title": "Free Scripts"
+  },
   "lib": "Renewed Lib",
-  "meth": "Renewed Meth"
+  "weaponscarry": "WeaponsCarry",
+  "banking": "Banking"
 }
+
