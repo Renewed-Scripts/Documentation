@@ -1,10 +1,19 @@
 # Functions
 
-Import the Lib by using this export as you would with a normal core
+Import the module by requiring it in your script (requires ox_lib)
 
 ```lua
-local Renewed = exports['Renewed-Lib']:getLib()
+require '@Renewed-Lib.bridge.import'
 ```
+
+or Import it in your `fxmanifest.lua` file like
+```lua
+shared_scripts {
+    '@ox_lib/init.lua',
+    '@Renewed-Lib/bridge/import.lua'
+}
+```
+
 
 ## getGroups()
 
