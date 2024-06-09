@@ -1,16 +1,17 @@
+# 💊 Exports
+
 ## CreateLab
 
 Creates a new lab
 
-```lua
+```lua copy
 exports['Renewed-Meth']:RegisterLootTable(coords, maxUpgrades)
 ```
 
 - coords: `vector4`
 - maxUpgrades: `boolean`
 
-
-```lua
+```lua copy
 exports['Renewed-Meth']:RegisterLootTable(vector4(0.0, 0.0, 0.0, 0.0), true)
 ```
 
@@ -19,14 +20,14 @@ exports['Renewed-Meth']:RegisterLootTable(vector4(0.0, 0.0, 0.0, 0.0), true)
 
 Checks if a player is in a lab
 
-```lua
+```lua copy
 exports['Renewed-Meth']:IsPlayerInLab(source)
 ```
 
 - source: `string`
 - return `number` | `nil`
 
-```lua
+```lua copy
     local isPlayerInLab = exports['Renewed-Meth']:IsPlayerInLab(source)
 
     print(isPlayerInLab) -- Prints lab ID if player is in lab or nil if player is not in lab
