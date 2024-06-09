@@ -4,13 +4,13 @@ These steps are needed to complete the integration of Renewed-Businesses with ox
 ## Step 1
 - Head over to `ox_inventory/client.lua` and search for this around line 175
 
-```lua
+```lua copy filename="ox_inventory/client.lua"
 'ox_inventory:openCraftingBench'
 ```
 
 Now replace this
 
-```lua
+```lua filename="ox_inventory/client.lua"
 left = lib.callback.await('ox_inventory:openCraftingBench', 200, data.id, data.index)
 
 if left then
@@ -43,7 +43,7 @@ end
 
 with this
 
-```lua
+```lua copy filename="ox_inventory/client.lua"
 left, right = lib.callback.await('ox_inventory:openCraftingBench', 200, data.id, data.index)
 
 if left and right then
@@ -76,13 +76,13 @@ end
 
 While still inside `ox_inventory/client.lua` search for the following near line 1630
 
-```lua
+```lua copy filename="ox_inventory/client.lua"
 'ox_inventory:startCrafting'
 ```
 
 Now replace this
 
-```lua
+```lua filename="ox_inventory/client.lua"
 lib.callback.register('ox_inventory:startCrafting', function(id, recipe)
 	recipe = CraftingBenches[id].items[recipe]
 
@@ -104,7 +104,7 @@ end)
 
 With this
 
-```lua
+```lua copy filename="ox_inventory/client.lua"
 lib.callback.register('ox_inventory:startCrafting', function(recipe)
 	return lib.progressCircle({
 		label = locale('crafting_item', recipe.metadata?.label or Items[recipe.name].label),
@@ -126,13 +126,13 @@ end)
 
 Now go to `ox_inventory/modules/crafting/server.lua` and find this function
 
-```lua
-function createCraftingBench
+```lua copy filename="ox_inventory/modules/crafting/server.lua"
+local function createCraftingBench
 ```
 
 and replace the entire function with this
 
-```lua
+```lua copy filename="ox_inventory/modules/crafting/server.lua"
 local function createCraftingBench(id, data)
 	CraftingBenches[id] = {}
 	local recipes = data.items
@@ -180,7 +180,7 @@ exports('RegisterCraftStation', createCraftingBench)
 
 While still in `ox_inventory/modules/crafting/server.lua` search for the following event/callback
 
-```lua
+```lua filename="ox_inventory/modules/crafting/server.lua"
 lib.callback.register('ox_inventory:openCraftingBench', function(source, id, index)
 	local left, bench = Inventory(source), CraftingBenches[id]
 
@@ -213,7 +213,7 @@ end)
 
 And then replace the entire event with this
 
-```lua
+```lua copy filename="ox_inventory/modules/crafting/server.lua"
 lib.callback.register('ox_inventory:openCraftingBench', function(source, id, index)
 	local left, bench = Inventory(source), CraftingBenches[id]
 
@@ -248,13 +248,13 @@ end)
 
 In the same file `ox_inventory/modules/crafting/server.lua` find the following line
 
-```lua
+```lua copy filename="ox_inventory/modules/crafting/server.lua"
 local success = lib.callback.await('ox_inventory:startCrafting', source, id, recipeId)
 ```
 
 Replace that line with this
 
-```lua
+```lua copy filename="ox_inventory/modules/crafting/server.lua"
 local success = lib.callback.await('ox_inventory:startCrafting', source, recipe)
 ```
 

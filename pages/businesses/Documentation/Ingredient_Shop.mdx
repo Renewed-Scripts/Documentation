@@ -9,7 +9,7 @@ How to add / remove items from the built in Ingredient Shops
 
 Here you can add a new shop like this.
 
-```lua
+```lua copy filename="Renewed-Businesses/Config.lua"
 ['example'] = { -- the 'example' is the key for the shop, which is used in ox_inv
     name = 'Example Shop', -- This is the name of the shop and Blip
 
@@ -33,7 +33,7 @@ Here you can add a new shop like this.
 
 Here you can find a random item like this 
 
-```lua
+```lua filename="ox_inventory/data/items.lua"
 ['radio'] = {
 	label = 'Radio',
 	weight = 1000,
@@ -44,7 +44,7 @@ Here you can find a random item like this
 
 Now we can add `shopType = 'example'` to add it add it to the example shop, and `price = 10`, to make it cost $10
 
-```lua
+```lua filename="ox_inventory/data/items.lua"
 ['radio'] = {
 	label = 'Radio',
 	weight = 1000,
@@ -61,7 +61,7 @@ Now we can add `shopType = 'example'` to add it add it to the example shop, and 
 
 Find an item that has `shopType = 'example'` and `price = 10` or anything like this
 
-```lua
+```lua filename="ox_inventory/data/items.lua"
 ['radio'] = {
 	label = 'Radio',
 	weight = 1000,
@@ -74,7 +74,7 @@ Find an item that has `shopType = 'example'` and `price = 10` or anything like t
 
 Now remove the shopType and price so it looks like this
 
-```lua
+```lua filename="ox_inventory/data/items.lua"
 ['radio'] = {
 	label = 'Radio',
 	weight = 1000,
