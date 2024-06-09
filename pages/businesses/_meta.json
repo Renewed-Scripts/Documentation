@@ -1,5 +1,5 @@
 {
-    "Setup": "📓 Installation",
-    "Businesses": "🍽️ Configured Businesses",
-    "Documentation": "📚 Documentation"
+    "setup": "📓 Installation",
+    "businesses": "🍽️ Configured Businesses",
+    "documentation": "📚 Documentation"
 }
