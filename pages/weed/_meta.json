@@ -1,4 +1,4 @@
 {
-    "Setup": "📓 Installation",
-    "Config": "🔧 Configuration"
+    "setup": "📓 Installation",
+    "config": "🔧 Configuration"
 }
