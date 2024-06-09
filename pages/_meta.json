@@ -2,22 +2,22 @@
   "index": "Introduction",
   "Paid": {
     "type": "separator",
-    "title": "Paid Scripts"
+    "title": "💵 Paid Scripts"
   },
-  "meth": "Meth",
-  "atm": "ATM Robbery",
-  "fuel": "Fuel",
-  "weed": "Weed",
-  "businesses": "Businesses",
-  "key": "Vehiclekeys",
-  "farming": "Farming",
-  "bee": "Beekeeping",
+  "meth": "💊 Meth",
+  "atm": "🏧 ATM Robbery",
+  "fuel": "⛽ Fuel",
+  "weed": "🌿 Weed",
+  "businesses": "🏢 Businesses",
+  "key": "🔐 Vehiclekeys",
+  "farming": "🚜 Farming",
+  "bee": "🐝 Beekeeping",
   "Free": {
     "type": "separator",
-    "title": "Free Scripts"
+    "title": "🆓 Free Scripts"
   },
-  "lib": "Renewed Lib",
-  "weaponscarry": "WeaponsCarry",
-  "banking": "Banking"
+  "lib": "📖 Renewed Lib",
+  "weaponscarry": "🔫 WeaponsCarry",
+  "banking": "🏦 Banking"
 }
 
