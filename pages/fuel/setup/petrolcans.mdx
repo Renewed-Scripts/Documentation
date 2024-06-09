@@ -1,6 +1,6 @@
 import { Bleed } from 'nextra-theme-docs'
 
-# 📚 OX Inventory Edits
+# 📚 Petrol Can Setup
 
 ## Step 1
 
@@ -25,17 +25,18 @@ Now find the following code (Around line 2500):
 
 ```lua filename="modules/inventory/server.lua"
 elseif action == 'ammo' then
-				if item.hash == `WEAPON_FIREEXTINGUISHER` or item.hash == `WEAPON_PETROLCAN` or item.hash == `WEAPON_HAZARDCAN` or item.hash == `WEAPON_FERTILIZERCAN` then
-					weapon.metadata.durability = math.floor(value)
-					weapon.metadata.ammo = weapon.metadata.durability
-				elseif value < weapon.metadata.ammo then
-					local durability = Items(weapon.name).durability * math.abs((weapon.metadata.ammo or 0.1) - value)
-					weapon.metadata.ammo = value
-					weapon.metadata.durability = weapon.metadata.durability - durability
-					weapon.weight = Inventory.SlotWeight(item, weapon)
-				end
+	if item.hash == `WEAPON_FIREEXTINGUISHER` or item.hash == `WEAPON_PETROLCAN` or item.hash == `WEAPON_HAZARDCAN` or item.hash == `WEAPON_FERTILIZERCAN` then
+		weapon.metadata.durability = math.floor(value)
+		weapon.metadata.ammo = weapon.metadata.durability
+	elseif value < weapon.metadata.ammo then
+		local durability = Items(weapon.name).durability * math.abs((weapon.metadata.ammo or 0.1) - value)
+		weapon.metadata.ammo = value
+		weapon.metadata.durability = weapon.metadata.durability - durability
+		weapon.weight = Inventory.SlotWeight(item, weapon)
+	end
 ```
-### Step 5
+
+## Step 4
 
 Add the following code to the if statement under `weapon.metadata.ammo = weapon.metadata.durability`
 
@@ -52,21 +53,21 @@ end
 
 ```lua filename="ox_inventory/modules/inventory/server.lua"
 elseif action == 'ammo' then
-				if item.hash == `WEAPON_FIREEXTINGUISHER` or item.hash == `WEAPON_PETROLCAN` or item.hash == `WEAPON_HAZARDCAN` or item.hash == `WEAPON_FERTILIZERCAN` then
-					weapon.metadata.durability = math.floor(value)
-					weapon.metadata.ammo = weapon.metadata.durability
-                    if item.hash == `WEAPON_PETROLCAN` then
-                    local weight = exports['Renewed-Fuel']:GetFuelCanWeight(weapon.metadata.durability) -- Use this if you want to have a realistic weight system
-                    weapon.weight = weight
-                    weapon.metadata.weight = weight
-                    weapon.metadata.oilAmount = exports['Renewed-Fuel']:DurabilityToGallons(weapon.metadata.durability) -- Use this if you want to show the oil amount in the inventory
-                end
-				elseif value < weapon.metadata.ammo then
-					local durability = Items(weapon.name).durability * math.abs((weapon.metadata.ammo or 0.1) - value)
-					weapon.metadata.ammo = value
-					weapon.metadata.durability = weapon.metadata.durability - durability
-					weapon.weight = Inventory.SlotWeight(item, weapon)
-				end
+	if item.hash == `WEAPON_FIREEXTINGUISHER` or item.hash == `WEAPON_PETROLCAN` or item.hash == `WEAPON_HAZARDCAN` or item.hash == `WEAPON_FERTILIZERCAN` then
+		weapon.metadata.durability = math.floor(value)
+		weapon.metadata.ammo = weapon.metadata.durability
+		if item.hash == `WEAPON_PETROLCAN` then
+		local weight = exports['Renewed-Fuel']:GetFuelCanWeight(weapon.metadata.durability) -- Use this if you want to have a realistic weight system
+		weapon.weight = weight
+		weapon.metadata.weight = weight
+		weapon.metadata.oilAmount = exports['Renewed-Fuel']:DurabilityToGallons(weapon.metadata.durability) -- Use this if you want to show the oil amount in the inventory
+	end
+	elseif value < weapon.metadata.ammo then
+		local durability = Items(weapon.name).durability * math.abs((weapon.metadata.ammo or 0.1) - value)
+		weapon.metadata.ammo = value
+		weapon.metadata.durability = weapon.metadata.durability - durability
+		weapon.weight = Inventory.SlotWeight(item, weapon)
+	end
 ```
 
 Now you have realistic petrol can weights and they will properly display the gallon per petrol can.
