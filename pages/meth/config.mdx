@@ -1,0 +1,177 @@
+# 🔧 Configuration
+
+Below covers the default configuration options for Renewed-Meth.
+
+## Hooks
+
+```lua copy filename="shared/hooks.lua"
+return {
+    -- Which items are allowed to be stored in the lab ingredient stash
+    ingredientStash = {
+        sodiumbenzoate = true,
+        propelyeneglycol = true
+    },
+
+    secondsToDecay = 21600, -- 6 hours in seconds, how long it takes for the meth to decay from liquid to crystals
+
+    delayTimer = 120, -- 2 minutes in seconds, how long inbetween refreshing the stashes and the meth props
+}
+```
+
+## Labs
+
+```lua copy filename="shared/lab.lua"
+return {
+    doorOffset = vec4(-12.730, -4.058, 3.599, 267.887),
+
+    cookDuration = 300, -- 5 minutes in seconds to finish a cook
+
+    methPerTray = 15, -- Amount of meth per tray
+
+    commandRestriction = 'group.admin', -- Who has permission to create a new methlab?
+
+    -- Activies should by default have a chance of 25-35% of happening, this is to ensure that a single player cant possibly do all activies at once
+    activities = {
+        temp = {
+            chance = 0.30, -- Chance of activity happening
+            min = 15, -- Min seconds before explosion
+            max = 30, -- Max seconds before explosion
+        },
+        pressure = {
+            chance = 0.25,
+            min = 15,
+            max = 30,
+        },
+        filter = {
+            chance = 0.35,
+            min = 15,
+            max = 30,
+        },
+        steamer = {
+            chance = 0.30,
+            min = 15,
+            max = 30
+        }
+    }
+}
+```
+
+## Prop data
+
+```lua copy filename="shared/propsdata.lua"
+return {
+    -- Feel free to add/move models as you see fit.
+    labPropsData = {
+        stage1 = {
+            model = `ep_methlab_stage1`,
+            offset = vec3(0.0, 0.0, 0.0),
+            heading = 0.0,
+        },
+        stage2 = {
+            model = `ep_methlab_stage2`,
+            offset = vec3(0.0, 0.0, 0.0),
+            heading = 0.0,
+        },
+        stage3 = {
+            model = `ep_methlab_stage3`,
+            offset = vec3(0.0, 0.0, 0.0),
+            heading = 0.0,
+        },
+        cabinet1 = {
+            offset = vec4(-1.644, 2.405, 0.0, 182.409),
+            heading = 0.0,
+            model = `tr_prop_meth_chiller_01a`
+        },
+        cabinet2 = {
+            offset = vec4(-3.344, 2.405, 0.0, 182.409),
+            heading = 0.0,
+            model = `tr_prop_meth_chiller_01a`
+        },
+        cabinet3 = {
+            offset = vec4(-5.067, 2.405, 0.0, 181.722),
+            heading = 0.0,
+            model = `tr_prop_meth_chiller_01a`
+        },
+        isFilled = {
+            offset = vec3(0.0, 0.0, 0.8),
+            heading = 0.0,
+            model = `ep_methlab_stage2_water`
+        }
+    },
+
+    cabinOffsets = {
+        vec3(-1.278, 2.420, 1.849),
+        vec3(-1.278, 2.420, 1.719),
+        vec3(-1.278, 2.420, 1.583),
+        vec3(-1.278, 2.420, 1.449),
+        vec3(-1.278, 2.420, 1.313),
+        vec3(-1.278, 2.420, 1.181),
+        vec3(-1.278, 2.420, 1.045),
+        vec3(-1.278, 2.420, 0.909),
+        vec3(-1.278, 2.420, 0.773),
+        vec3(-1.278, 2.420, 0.637),
+        vec3(-1.278, 2.420, 0.501),
+        vec3(-1.278, 2.420, 0.365),
+        vec3(-2.000, 2.420, 1.850),
+        vec3(-2.000, 2.420, 1.719),
+        vec3(-2.000, 2.420, 1.583),
+        vec3(-2.000, 2.420, 1.449),
+        vec3(-2.000, 2.420, 1.313),
+        vec3(-2.000, 2.420, 1.181),
+        vec3(-2.000, 2.420, 1.045),
+        vec3(-2.000, 2.420, 0.909),
+        vec3(-2.000, 2.420, 0.773),
+        vec3(-2.000, 2.420, 0.637),
+        vec3(-2.000, 2.420, 0.501),
+        vec3(-2.000, 2.420, 0.365),
+        vec3(-2.982, 2.420, 1.850),
+        vec3(-2.982, 2.420, 1.719),
+        vec3(-2.982, 2.420, 1.583),
+        vec3(-2.982, 2.420, 1.449),
+        vec3(-2.982, 2.420, 1.313),
+        vec3(-2.982, 2.420, 1.181),
+        vec3(-2.982, 2.420, 1.045),
+        vec3(-2.982, 2.420, 0.909),
+        vec3(-2.982, 2.420, 0.773),
+        vec3(-2.982, 2.420, 0.637),
+        vec3(-2.982, 2.420, 0.501),
+        vec3(-2.982, 2.420, 0.365),
+        vec3(-3.695, 2.420, 1.850),
+        vec3(-3.695, 2.420, 1.719),
+        vec3(-3.695, 2.420, 1.583),
+        vec3(-3.695, 2.420, 1.449),
+        vec3(-3.695, 2.420, 1.313),
+        vec3(-3.695, 2.420, 1.181),
+        vec3(-3.695, 2.420, 1.045),
+        vec3(-3.695, 2.420, 0.909),
+        vec3(-3.695, 2.420, 0.773),
+        vec3(-3.695, 2.420, 0.637),
+        vec3(-3.695, 2.420, 0.501),
+        vec3(-3.695, 2.420, 0.365),
+        vec3(-4.704, 2.420, 1.850),
+        vec3(-4.704, 2.420, 1.719),
+        vec3(-4.704, 2.420, 1.583),
+        vec3(-4.704, 2.420, 1.449),
+        vec3(-4.704, 2.420, 1.313),
+        vec3(-4.704, 2.420, 1.181),
+        vec3(-4.704, 2.420, 1.045),
+        vec3(-4.704, 2.420, 0.909),
+        vec3(-4.704, 2.420, 0.773),
+        vec3(-4.704, 2.420, 0.637),
+        vec3(-4.704, 2.420, 0.501),
+        vec3(-4.704, 2.420, 0.365),
+        vec3(-5.415, 2.420, 1.850),
+        vec3(-5.415, 2.420, 1.719),
+        vec3(-5.415, 2.420, 1.583),
+        vec3(-5.415, 2.420, 1.449),
+        vec3(-5.415, 2.420, 1.313),
+        vec3(-5.415, 2.420, 1.181),
+        vec3(-5.415, 2.420, 1.045),
+        vec3(-5.415, 2.420, 0.909),
+        vec3(-5.415, 2.420, 0.773),
+        vec3(-5.415, 2.420, 0.637),
+        vec3(-5.415, 2.420, 0.501),
+        vec3(-5.415, 2.420, 0.365)
+    }
+}
+```

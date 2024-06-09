@@ -1,0 +1,89 @@
+# 📓 Installation
+## Step 1
+
+Open Renewed-Fuel folder and run the SQL on your database.
+
+## Step 2
+
+1. Remove LegacyFuel or any other Fuel Script you used prior
+1. Insert Renewed-Fuel into your server
+1. Remember to add `ensure Renewed-Fuel` in your server.cfg
+
+## Step 3
+
+> Optional if you used ps/cdn/qb/jl/Legacy Fuel
+
+1. Open your entire server in Visual Studio Code.
+1. Now do a folder search for LegacyFuel (Or any other fuel script you used prior)
+1. Now replace it with Renewed-Fuel
+
+## Step 4
+
+Now open ox_inventory and insert the following items into `ox_inventory/data/items.lua`
+
+```lua copy filename="ox_inventory/data/items.lua"
+oilbarrel = {
+	label = 'Oil Barrel',
+	stack = false,
+	weight = 0,
+},
+
+driveshaft = {
+	label = 'Drive Shaft',
+	weight = 1000,
+	stack = false
+},
+
+oilfilter = {
+	label = 'Oil Filter',
+	weight = 1000,
+	stack = false
+},
+
+reliefstring = {
+	label = 'Relief String',
+	weight = 1000,
+	stack = false
+},
+
+skewgear = {
+	label = 'Skew Gear',
+	weight = 1000,
+	stack = false
+},
+
+timingchain = {
+	label = 'Timing Chain',
+	weight = 1000,
+	stack = false
+},
+```
+
+Insert the images from Renewed-Fuel into `ox_inventory/web/images` folder.
+
+## Step 5 (optional)
+
+If you want to use native audio for when picking/putting nozzles and fueling vehicles download this [resource](https://github.com/Renewed-Scripts/Renewed-Audiobank)
+
+> Note: Make sure to start it in the server.cfg before Renewed-Fuel
+
+## Step 6 (optional)
+
+If you want players to be able to purchase stations without admin intervention add this to your server.cfg
+
+```lua copy
+# Make fuel stations purchaseable by players
+setr fuel_buystations true
+```
+## Step 7 (optional with Renewed-Vehiclekeys)
+
+If you want vehicles to not be started when they are out of fuel, do as followed (example taken from Renewed-Vehiclekeys)
+
+```lua copy
+if GetResourceState('Renewed-Fuel') ~= 'missing' then
+local fuel = GetVehicleFuelLevel(cache.vehicle)
+if fuel <= 0 then
+    return notify("Vehicle can't be operated", 'error')
+    end
+end
+```

@@ -1,0 +1,75 @@
+# 🔧 Configuration
+
+## Client Config
+
+```lua copy
+return {
+    baseDamage = 10, -- How much damage does each vehicle do to the ATM? (It takes 100 to rip it off the wall)
+    copsDamage = 5, -- How much damage should an ATM have taken before the cops is called
+
+    vehicleMultipler = {
+        [`vectre`] = 1.5, -- This makes the Vectre do 1.5x the base damage so instead of 10 its 15
+    },
+
+    -- 0.0 means the vehicle cannot be used to rip off the ATM
+    classMultipler = {
+        0.9, -- Coupes do 90% of the base damage
+        1.0, -- Sedans do 100% of the base damage
+        1.3, -- SUVs do 130% of the base damage
+        0.9, -- Coupes do 90% of the base damage
+        0.9, -- Muslce do 90% of the base damage
+        1.0, -- Sports Classics do 100% of the base damage
+        1.0, -- Sports do 100% of the base damage
+        1.0, -- Super do 100% of the base damage
+        0.0, -- Motorcycles do 0% of the base damage
+        1.0, -- Off-road do 100% of the base damage
+        1.0, -- Industrial do 100% of the base damage
+        1.0, -- Utility do 100% of the base damage
+        1.0, -- Vans do 100% of the base damage
+        0.0, -- Cycles do 0% of the base damage
+        1.0, -- Boats do 100% of the base damage
+        0.0, -- Helicopters do 0% of the base damage
+        0.0, -- Planes do 0% of the base damage
+        1.0, -- Service do 100% of the base damage
+        1.0, -- Emergency do 100% of the base damage
+        1.0, -- Military do 100% of the base damage
+        1.0, -- Commercial do 100% of the base damage
+        0.0, -- Trains do 0% of the base damage
+        1.0 -- Open-Wheel do 100% of the base damage
+    },
+}
+```
+
+## Server Config
+
+```lua copy
+return {
+    timeToLoot = 30, -- How many seconds after the ATM is ripped off the wall must be passed before its lootable?
+
+    -- These are the model of the ATMs that give us the Image to use for the item that way it syncs up, only change this if u change atm models or image names
+    modelToItem = {
+        [`ep_atm_02`] = 'atm1',
+        [`ep_atm_03`] = 'atm2',
+        [`ep_fleeca_atm`] = 'atm3',
+    },
+
+    ropeItem = 'rope',
+
+
+    minRewards = 1, -- Minimum amount of rewards
+    maxRewards = 3, -- Maximum amount of rewards
+    rewards = {
+        {name = 'money', chance = 1.0, min = 100, max = 4500},
+    }
+}
+```
+
+## Shared Config
+
+```lua copy
+return {
+    [`prop_atm_02`] = `ep_atm_02`,
+    [`prop_atm_03`] = `ep_atm_03`,
+    [`prop_fleeca_atm`] = `ep_fleeca_atm`,
+}
+```
