@@ -1,5 +1,5 @@
 {
-    "Installation": "📓 Installation",
-    "Config": "🔧 Configuration",
-    "Exports": "🚙 Exports"
+    "installation": "📓 Installation",
+    "config": "🔧 Configuration",
+    "exports": "🚙 Exports"
 }
