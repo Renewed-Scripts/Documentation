@@ -1,7 +1,7 @@
 {
-    "Setup": "Script Setup",
-    "Config": "Config",
-    "Exports": "Script Exports",
-    "oilrigs": "Creating Oil Rigs",
-    "gasstations": "Creating Gas Stations"
+    "setup": "📓 Installation",
+    "config": "🔧 Configuration",
+    "exports": "⛽ Exports",
+    "oilrigs": "🛢️ Oil Rigs",
+    "gasstations": "🏭 Gas Stations"
 }

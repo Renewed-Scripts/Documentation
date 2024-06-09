@@ -1,20 +1,26 @@
 import { Bleed } from 'nextra-theme-docs'
 
-# OX Inventory Edits
+# 📚 OX Inventory Edits
 
-### Step 1
+## Step 1
+
 Navigate to `ox_inventory/data/weapons.lua` and open it
-### Step 2
+
+## Step 2
+
 Look for `WEAPON_PETROLCAN` and change it's weight to 0
+
 ```lua copy filename="weapons.lua" 
 		['WEAPON_PETROLCAN'] = {
 			label = 'Gas Can',
 			weight = 0,
 		},
 ```
- ### Step 3
- Navigate to `modules/inventory/server.lua` and find the function called `updateWeapon` (Around line 2429)
-### Step 4
+
+## Step 3
+
+Navigate to `modules/inventory/server.lua` and find the function called `updateWeapon` (Around line 2429)  
+
 Now find the following code (Around line 2500): 
 
 ```lua filename="modules/inventory/server.lua"
@@ -30,8 +36,8 @@ elseif action == 'ammo' then
 				end
 ```
 ### Step 5
-Add the following code to the if statement under `weapon.metadata.ammo = weapon.metadata.durability`
 
+Add the following code to the if statement under `weapon.metadata.ammo = weapon.metadata.durability`
 
 ```lua copy
 if item.hash == `WEAPON_PETROLCAN` then
@@ -41,8 +47,10 @@ if item.hash == `WEAPON_PETROLCAN` then
 	weapon.metadata.oilAmount = exports['Renewed-Fuel']:DurabilityToGallons(weapon.metadata.durability) -- Use this if you want to show the oil amount in the inventory
 end
 ```
+
 **End Result**
-```lua filename="modules/inventory/server.lua"
+
+```lua filename="ox_inventory/modules/inventory/server.lua"
 elseif action == 'ammo' then
 				if item.hash == `WEAPON_FIREEXTINGUISHER` or item.hash == `WEAPON_PETROLCAN` or item.hash == `WEAPON_HAZARDCAN` or item.hash == `WEAPON_FERTILIZERCAN` then
 					weapon.metadata.durability = math.floor(value)
@@ -60,4 +68,5 @@ elseif action == 'ammo' then
 					weapon.weight = Inventory.SlotWeight(item, weapon)
 				end
 ```
+
 Now you have realistic petrol can weights and they will properly display the gallon per petrol can.
