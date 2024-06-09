@@ -1,12 +1,16 @@
-### Step 1
+# 📓 Installation
+
+These steps cover the basic installation of **Renewed-Atmrobbery**
+
+## Step 1
+
 Put Renewed-Atmrobbery and ep_atmprops inside your server and add them to your server.cfg
 
-### Step 2
-Headover to your ox_inventory -> data/items.lua
+## Step 2
 
-and paste in the following items
+Headover to your `ox_inventory/data/items.lua` and paste in the following items.
 
-```lua
+```lua copy filename="ox_inventory/data/items.lua"
 ['rope'] = {
     label = 'Rope',
     weight = 160,
@@ -43,14 +47,15 @@ and paste in the following items
 },
 ```
 
-### Step 3
-Headover to ox_inventory/web/images and paste in the images from Renewed-Atmrobbery
+## Step 3
 
+Headover to `ox_inventory/web/images` and paste in the images from Renewed-Atmrobbery
 
-### Step 4 (Optional)
+## Step 4 (Optional)
+
 Headover to Renewed-Weaponscarry/data/carry.lua and paste in the following
 
-```lua
+```lua copy filename="Renewed-Weaponscarry/data/carry.lua"
 atm1 = {
     model = `ep_atm_03`,
     pos = vec3(0.0, -0.25, -0.51),
