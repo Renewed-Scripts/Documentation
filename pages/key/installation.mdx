@@ -14,7 +14,7 @@ client = {
 
 Should end up looking like this.
 
-```lua
+```lua copy
 ['lockpick'] = {
 	label = 'Lockpick',
 	weight = 160,
@@ -34,5 +34,32 @@ Head over to `ox_inventory/data/items.lua` and paste in this item.
 },
 ```
 
-Then head over to `ox_inventory/web/images.lua` and put in the included images from `Renewed-Vehiclekeys/image`.  
+## Step 3 (optional)
+
+Head over to `ox_inventory/data/items.lua` and paste in this item.
+
+```lua copy
+['keyring'] = {
+	label = 'Key Ring',
+	weight = 1,
+	stack = false,
+	close = false,
+	consume = 0
+},
+```
+
+now head over to `ox_inventory/modules/items/containers.lua` and add the following to the `keyring` item. at the very bottom of the file.
+
+```lua copy
+setContainerProperties('keyring', {
+	slots = 10,
+	maxWeight = 100,
+	whitelist = { 'vehiclekey'}
+})
+```
+
+
+
+
+Then head over to `ox_inventory/web/images.lua` and put in the included images from `Renewed-Vehiclekeys/image`.
 And that's it! Enjoy **Renewed Vehiclekeys**!
