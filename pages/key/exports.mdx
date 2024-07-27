@@ -61,7 +61,7 @@ Use this to set the lock/unlocked state of a vehicle.
 ```lua copy
 -- Sets the vehicle locked or unlocked
 Entity(entity).state:set('vehicleLock', {
-    lock = 1 -- 1 | unlocked | 2 locked
-    sound = true -- true | false
+    lock = 1, -- 1 | unlocked | 2 locked
+    sound = true, -- true | false
 }, true)
 ```
