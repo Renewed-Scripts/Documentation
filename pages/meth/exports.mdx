@@ -2,23 +2,24 @@
 
 ## CreateLab
 
-Creates a new lab
+Creates a new lab where the vector4 is the location of the tablet and the password is the password to access the lab. The maxUpgrades is a boolean that determines if the lab can be upgraded or not.
 
 ```lua copy
 exports['Renewed-Meth']:CreateLab(coords, maxUpgrades)
 ```
 
 - coords: `vector4`
+- password: `string`
 - maxUpgrades: `boolean`
 
 ```lua copy
-exports['Renewed-Meth']:CreateLab(vector4(0.0, 0.0, 0.0, 0.0), true)
+exports['Renewed-Meth']:CreateLab(vector4(0.0, 0.0, 0.0, 0.0), "most_secure_password321", true)
 ```
 
 
 ## IsPlayerInLab
 
-Checks if a player is in a lab
+This export tells you weather or not a player is in a lab, and if they are it will return the lab ID.
 
 ```lua copy
 exports['Renewed-Meth']:IsPlayerInLab(source)
