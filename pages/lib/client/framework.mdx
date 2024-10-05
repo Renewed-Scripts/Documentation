@@ -1,10 +1,6 @@
 # Functions
 
-Import the Lib by using this export as you would with a normal core
-
-```lua
-local Renewed = exports['Renewed-Lib']:getLib()
-```
+To use any of these functions YOU MUST HAVE IMPORTED THE CORE in your fxmanifest.
 
 ## getPlayerGroup()
 
@@ -15,19 +11,12 @@ Renewed.getPlayerGroup()
 ```
 
 Return:
-- group: `table`
+- group: `table<string, number>`
 
+Usage Example:
 ```lua
-{
-    Group = {
-        ['mechanic'] = 4,
-        ['ballas'] = 2
-    },
-    job = 'mechanic',
-    gang = 'ballas',
-    charId = 'QB245361',
-    name = 'Test Player'
-}
+    local Groups = Renewed.getPlayerGroup()
+    -- output example: {['police'] = 1, ['ambulance'] = 2}
 ```
 
 ## getCharId()
@@ -40,3 +29,43 @@ Renewed.getCharId()
 
 Return:
 - charId: `string`
+
+Usage Example:
+```lua
+    local charId = Renewed.getCharId()
+    -- output example: RFSA321
+```
+
+## getCharName()
+
+Returns the current player's full name
+
+```lua
+Renewed.getCharName()
+```
+
+Return:
+- fullName: `string`
+
+Usage Example:
+```lua
+    local fullName = Renewed.getCharName()
+    -- output example: Hunter Smith
+```
+
+## hasGroup()
+
+Check if the player has a specific group
+
+```lua
+Renewed.hasGroup()
+```
+
+Return:
+- hasGroup: `boolean`
+
+Usage Example:
+```lua
+    local hasGroup = Renewed.hasGroup('police', 1)
+    -- output example: true
+```

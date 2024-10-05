@@ -1,26 +1,34 @@
 
 ##  Renewed Lib
 
-Renewed Lib is a collection of functions and framework intergration used for Renewed-Scripts, feel free to use it in your own scripts if you feel like or improve anything by doing a PR.
+Renewed Lib is a collection of Functions and Framework intergration completely open source and ready to be used by any developer.
 
 ### Features
 
-- Support for ESX, QBCore, and Ox
+- Various framework functions which supports Ox, ESX, NDCore, QBCore and QBox
+- Ped spawner with automatic cleanup when player leaves the range
+- Object spawner with automatic cleanup when player leaves the range
 
-- Spawn peds that auto despawn when not in range
-- Spawn objects that auto despawn when not in range
-- Various framework functions to get a player's group, grade, and more
+### Inventory Specific Feature(s)
 
-### Framework Specific Feature(s)
-
-- Supports creating stash shops with `ox_inventory`
+- (Optional) Supports creating stash shops with `ox_inventory`, which acts like a "Shop" with intergrated stashes
 
 ### Dependencies
 
 - [ox_lib](https://github.com/overextended/ox_lib/releases)
 - Optional: [ox_inventory](https://github.com/overextended/ox_inventory/releases)
 
-- ESX or QBCore or Ox
+- ESX, QBCore, Ox_Core, NDCore or QBox
+
+### Importing the Core
+
+To use Renewed-Lib with any resource you must import the core in your fxmanifest as shown below.
+
+```lua
+shared_scripts {
+	'@Renewed-Lib/init.lua',
+}
+```
 
 ## Installation
 
