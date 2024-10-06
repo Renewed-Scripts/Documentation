@@ -1,0 +1,44 @@
+# Installation
+
+Welcome to the installation portion of Renewed Fishing, here you will find a quick and easy guide of how to install Renewed Fishing into your server.
+
+## Step 1
+Drop Renewed-Fishing into your resources folder.
+
+## Step 2
+Add `ensure Renewed-Fishing` to your server.cfg, make sure Renewed Lib is started before ox_inventory
+
+## step 3
+Head over to `ox_inventory/data/items.lua` here you will need to add the following items
+
+```lua
+	['renewed_fish'] = {
+		label = 'Fish',
+		weight = 0,
+	},
+
+	['fishing_hook'] = {
+		label = 'Fishing Hook',
+		weight = 0,
+	},
+
+	['fishing_bait'] = {
+		label = 'Fishing Bait',
+		weight = 0,
+	},
+
+	['fishing_rod'] = {
+		label = 'Fishing Rod',
+		weight = 0,
+		consume = 0,
+		server = {
+			export = 'Renewed-Fishing.StartFishing'
+		},
+	},
+```
+
+## Step 4
+Now headover to `ox_inventory/web/images` and drop in the images from the `images` folder in Renewed Fishing.
+
+
+You have now successfully installed Renewed-Fishing into your server, if you have any issues please feel free to join our discord and ask for help.
