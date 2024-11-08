@@ -1,0 +1,29 @@
+## Inventory Image Whitelist
+
+Due to Imgur and Discord not allowing images to work with FiveM, we recommend adding your sites to ox_inventory and Renewed-Businesses. 
+
+
+Go to ox_inventory -> modules -> utils -> server.lua, find `validHosts` and replace it with the following:
+
+```lua copy
+    local validHosts = {
+        ['ibb.co'] = true,
+        ['i.postimg.cc'] = true,
+        ['r2.fivemanage.com'] = true
+    }
+```
+
+Now head over to Renewed-Businesses -> modules -> utils -> server.lua, find `hosts` and replace it with this:
+
+```lua copy
+    hosts = {
+        ['ibb.co'] = true,
+        ['i.postimg.cc'] = true,
+        ['r2.fivemanage.com'] = true
+    },
+```
+
+This will allow the use of
+https://imgbb.com/, https://i.postimg.cc/ and https://fivemanage.com/ in your whitelist URLs.
+
+*Be sure your links end in .png or it will not work!*
