@@ -1,0 +1,78 @@
+# 📄Installation
+
+Head over to your ox-inventory/client.lua and find the following line the function called createDrop it will look like this:
+```lua
+local function createDrop(dropId, data)
+	local point = lib.points.new({
+		coords = data.coords,
+		distance = 16,
+		invId = dropId,
+		instance = data.instance,
+		model = data.model
+	})
+
+	if point.model or client.dropprops then
+		point.distance = 30
+		point.onEnter = onEnterDrop
+		point.onExit = onExitDrop
+	else
+		point.nearby = nearbyDrop
+	end
+
+	client.drops[dropId] = point
+end
+```
+
+Now replace that with the following code:
+```lua
+	local point = lib.points.new({
+		coords = data.coords,
+		distance = 16,
+		invId = dropId,
+		instance = data.instance
+	})
+
+	client.drops[dropId] = point
+```
+
+
+### ADDNG A NEW DROP ITEM
+Go to your ox_inventory/data/items.lua
+
+To attach a model to that drop you have 2 options.
+```lua
+dropModel = `model`
+modelRotation = vec3(0.0, 0.0, 0.0)
+```
+
+dropModel is the model you want to drop MAKE SURE YOU DO `` NOT ''
+modelRotation is used for making adjustments to the rotations
+
+Here is an example of one my items:
+```lua
+	['burger'] = {
+		label = 'Burger',
+		weight = 220,
+		client = {
+			status = { hunger = 200000 },
+			anim = 'eating',
+			prop = 'burger',
+			usetime = 2500,
+			notification = 'You ate a delicious burger'
+		},
+		dropModel = `prop_cs_burger_01`,
+	},
+```
+
+### SETTING A DEFAULT PROP
+
+If you want to use another default prop then you can use the following convar like
+
+-- Put this inside your server.cfg and change the defaultprop to whatever needs to be dropped if an item dosnt have a prop
+
+```
+## Default prop
+set renewed:defaultprop "hei_prop_hei_paper_bag"
+```
+
+and thats it! Enjoy!

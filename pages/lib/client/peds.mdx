@@ -43,6 +43,19 @@ Renewed.addPed({
             end,
         }
     }
+
+    interact = {
+        distance = 1.5, -- optional
+        interactDst = 3.5, -- optional
+        options = {
+            {
+                label = 'View Shop',
+                action = function()
+                    TriggerEvent('Renewed-Businesses:client:openStore')
+                end,
+            }
+        }
+    }
 })
 ```
 

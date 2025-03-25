@@ -10,6 +10,7 @@ This configuration controls settings for the plants such as how long they take t
 return {
 
     -- plant config --
+    showHealth = true, -- Set to true if you want health to be displayed on the plant
     maxWeight = 5, -- How much can a perfectly healthy plant weight?
     GrowthTime = 300, -- How many minutes it takes for a plant to grow
     Distance = 400, -- What's the distance in GTA units before the weed get spawned / despawned
@@ -37,7 +38,7 @@ return {
 
 
     -- Brick Config --
-    driedWeight = 50, -- How much does 1 dried weed weight? if you change it inside your inventory change it here for the weed bricks
+    driedWeight = 1000, -- How much does 1 dried weed weight? if you change it inside your inventory change it here for the weed bricks
     minWeed = 5, -- How much dried weed minimum can you use to make a brick?
     maxWeed = 50, -- How much dried weed maximum can you use to make a brick?
 
@@ -46,9 +47,13 @@ return {
     circleProgress = true, -- Use circle progress bar instead of the default one
     clearPlantingAnim = true, -- Clear the planting animation IMMEDIATELY after planting a plant
 
+    secondsToDecay = 7200, -- How many seconds does it take for a plant to decay down to dried weed? (Default 7200 seconds = 2 hours)
+
     -- Here are ALL the item names for all the items used for weed growing, change them incase your server uses different names and such.
     Items = {
         water = 'water',
+        femaleSeed = 'female_seed',
+        maleSeed = 'male_seed',
         driedweed = 'driedweed',
         wateringcan = 'wateringcan',
         fertilizer = 'fertilizer',
@@ -56,7 +61,11 @@ return {
         fullbag = 'fullbag',
         weedbrick = 'weedbrick',
         scale = 'scale',
-        wetweed = "wetweed"
+        wetweed = 'wetweed',
+        rollingpaper = 'rollingpaper',
+        joint = 'joint',
+        dryingrack = 'dryingrack',
+        advanceddryingrack = 'dryingrackadvanced',
     },
 
     -- Placement Config --
@@ -289,7 +298,12 @@ This configuration controls the weed runs
 
 ```lua copy
 return {
+    disable = false, -- Set this to true to disable the weed runs
+
+    moneyType = 'money', -- Put whatever money reward system you have here
+
     -- START SETTINGS --
+    needWeedbrick = false, -- Set this to true if you want the player to need a weed brick to start the run
     pedModel = `mp_m_weed_01`,
     pedCoords = vec4(94.791, -1809.941, 26.083, 229.595),
     scenario = 'WORLD_HUMAN_SMOKING_POT',
