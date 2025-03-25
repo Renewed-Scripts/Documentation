@@ -14,12 +14,22 @@
   "farming": "🚜 Farming",
   "fishing": "🎣 Fishing",
   "bee": "🐝 Beekeeping",
+  "Subscription": {
+    "type": "separator",
+    "title": "🔁 Subscription Scripts"
+  },
+  "hud": "🌍 HUD",
+  "itemdrops": "🎒 Item Drops",
+  "metaldetecting": "📡 Metal Detecting",
   "Free": {
     "type": "separator",
     "title": "🆓 Free Scripts"
   },
   "lib": "📖 Renewed Lib",
-  "weaponscarry": "🔫 WeaponsCarry",
+  "sirensync":"🚓 Sirensync",
+  "weaponscarry": "🔫 Weapons Carry",
+  "chargers": "⚡ Chargers",
+  "weathersync": "☁️ Weather Sync",
   "banking": "🏦 Banking"
 }
 

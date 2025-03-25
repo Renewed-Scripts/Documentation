@@ -1,0 +1,27 @@
+# 📄Installation
+
+Put these items inside your ox_inventory/data/items.lua
+
+```lua
+['metaldetector'] = {
+    label = 'Metal Detector',
+    price = 800,
+    weight = 2000,
+    stack = false,
+    consume = 0,
+    server = {
+        export = 'Renewed-Metaldetecting.UseMetalDetector'
+    },
+},
+
+['trowel'] = {
+    label = 'Trowel',
+    price = 400,
+    weight = 2000,
+    stack = false,
+},
+```
+
+Remember to take the images from images and put them inside ox_inventory/web/images
+
+And that's it! You can now use the metal detector and trowel to find items!

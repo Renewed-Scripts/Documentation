@@ -7,8 +7,15 @@ return {
     baseDamage = 10, -- How much damage does each vehicle do to the ATM? (It takes 100 to rip it off the wall)
     copsDamage = 5, -- How much damage should an ATM have taken before the cops is called
 
+    copsAmount = 3, -- How many cops should be on duty before they can rob an atm
+
     vehicleMultipler = {
         [`vectre`] = 1.5, -- This makes the Vectre do 1.5x the base damage so instead of 10 its 15
+    },
+
+    keys = {
+        place_rope = 38, -- E
+        cancel = 73, -- X
     },
 
     -- 0.0 means the vehicle cannot be used to rip off the ATM
@@ -54,7 +61,6 @@ return {
     },
 
     ropeItem = 'rope',
-
 
     minRewards = 1, -- Minimum amount of rewards
     maxRewards = 3, -- Maximum amount of rewards
