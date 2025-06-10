@@ -55,3 +55,14 @@ exports['Renewed-Banking']:removeAccountMoney(account, amount)
 
 ---@return complete<boolean> - true | false
 ```
+
+### Create Job Account
+```lua copy
+exports['Renewed-Banking']:CreateJobAccount(job, initialBalance)
+ ---@param job<table> - A table containing job account details:
+       --- job.name<string> - The unique identifier for the job
+       --- job.label<string> - The display name/label for the job
+ ---@param initialBalance<number> - The starting balance of the account
+
+---@return account<table> - Account table if found or successfully created
+```
